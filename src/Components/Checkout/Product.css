@@ -4,11 +4,11 @@
     background-color: white;
     align-items: center;
     justify-content: flex-end;
-    margin: 10px;
-    padding: 20px;
+    margin: 1em;
+    /* padding: 2em; */
     width: 100%;
-    max-height: 400px;
-    min-width: 100px;
+    max-height: 40em;
+    min-width: 10em;
     z-index: 1;
 }
 
