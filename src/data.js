@@ -1,6 +1,5 @@
-import { Filter } from "@mui/icons-material";
+import { Podcasts } from "@mui/icons-material";
 import { createContext } from "react";
-
 const data = {
   store: [
     {
@@ -63,6 +62,20 @@ const data = {
   bocket: [],
 };
 
+// async function products() {
+//   return await fetch("https://fakestoreapi.com/products").then(res =>
+//     res.json()
+//   );
+// }
+
+// async function getProducts() {
+//   let products = await fetch("https://fakestoreapi.com/products");
+//   products.json();
+//   console.log(products);
+// }
+// getProducts();
+// let product = products();
+// console.log(product);
 export const BasketContext = createContext();
 
 export const reducer = (state, action) => {
