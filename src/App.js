@@ -1,10 +1,11 @@
 import "./App.css";
-import Header from "./Components/Header";
 import Home from "./Pages/Home/Home";
 import Checkout from "./Pages/Checkout/Checkout";
+import Login from "./Pages/Auth/Login";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useReducer } from "react";
-import data, { BasketContext, reducer } from "./data.js";
+import { BasketContext, reducer } from "./data.js";
+import Structure from "./Components/Structure";
 // import { Outlet, Link } from "react-router-dom";
 
 function App() {
@@ -12,10 +13,13 @@ function App() {
   return (
     <BasketContext.Provider value={{ basket, dispatch }}>
       <BrowserRouter className="App">
-        <Header />
+        {/* <Header /> */}
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/" element={<Structure />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/checkout" element={<Checkout />} />
+          </Route>
+          <Route path="/auth/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </BasketContext.Provider>
