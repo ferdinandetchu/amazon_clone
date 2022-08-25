@@ -7,7 +7,7 @@
     margin: 1em;
     /* padding: 2em; */
     width: 100%;
-    max-height: 40em;
+    height: 250px;
     min-width: 10em;
     z-index: 1;
 }

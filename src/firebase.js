@@ -13,9 +13,10 @@ const firebaseConfig = {
   storageBucket: "my-e-clone-60fcb.appspot.com",
   messagingSenderId: "61913849214",
   appId: "1:61913849214:web:21214fed6682667470672f",
-  measurementId: "G-KKBPXGHL4X"
+  measurementId: "G-KKBPXGHL4X",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+
+export { app };

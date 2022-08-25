@@ -1,19 +1,45 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { app } from "../../firebase.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import "./Login.css";
+import { UserContext } from "../../data.js";
 
 function Login() {
+  const navigate = useNavigate();
+  const { user, setUser } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signIn = e => {
     e.preventDefault();
-
-    // some fancy fire base shitt
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        // Signed in
+        // const user = userCredential.user;
+        setUser(userCredential.user);
+        navigate("/");
+        // ...
+      })
+      .catch(error => alert(error.message));
   };
   const register = e => {
     e.preventDefault();
-
+    const auth = getAuth(app);
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(userCredential => {
+        // it successfully created a user with email and password
+        // console.log(userCredential);
+        setUser(userCredential.user);
+        console.log(user);
+        navigate("/");
+      })
+      .catch(error => alert(error.message));
     // some fancy firebase register
   };
 

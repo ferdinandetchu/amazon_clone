@@ -1,25 +1,20 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState, useContext, useEffect } from "react";
 import "./Home.css";
 import Product from "../../Components/Home/Product";
-import data from "../../data.js";
-import { reducer } from "../../data.js";
+import { ProductsContext, reducer } from "../../data.js";
 
 // import { StoreTwoTone } from '@mui/icons-material';
 
 function Home() {
-  let storeItems = () => {
-      return [data.store[0], data.store[1]];
-    },
-    storeItems2 = () => {
-      return [data.store[2], data.store[3], data.store[4]];
-    },
-    storeItems3 = () => {
-      return [data.store[5]];
-    },
-    storeItems4 = () => {
-      return data.store;
-    };
-  // console.log("Data: ", data.store, "storeItems: ", storeItems4());
+  const { products, setProducts } = useContext(ProductsContext);
+  // console.log(products);
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then(res => res.json())
+      .then(data => setProducts(data));
+  }, []);
+
   return (
     <div className="home">
       <div className="home__Container">
@@ -30,54 +25,13 @@ function Home() {
         />
 
         <div className="home__row">
-          {storeItems().map(item => (
-            <Product
-              key={item.id}
-              title={item.title}
-              price={item.price}
-              image={item.image}
-              rating={item.rating}
-              id={item.id}
-            />
-          ))}
-        </div>
-
-        <div className="home__row">
-          {storeItems2().map(item => (
-            <Product
-              key={item.id}
-              title={item.title}
-              price={item.price}
-              image={item.image}
-              rating={item.rating}
-              id={item.id}
-            />
-          ))}
-        </div>
-
-        <div className="home__row">
-          {storeItems3().map(item => (
-            <Product
-              key={item.id}
-              title={item.title}
-              price={item.price}
-              image={item.image}
-              rating={item.rating}
-              id={item.id}
-            />
-          ))}
-        </div>
-        <div className="home__row">
-          {storeItems4().map(item => (
-            <Product
-              key={item.id}
-              title={item.title}
-              price={item.price}
-              image={item.image}
-              rating={item.rating}
-              id={item.id}
-            />
-          ))}
+          {products != null ? (
+            products.map(item => (
+              <Product className="product" key={item.id} product={item} />
+            ))
+          ) : (
+            <p>No data</p>
+          )}
         </div>
       </div>
     </div>
