@@ -1,0 +1,33 @@
+.filter__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #131921;;
+     z-index: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: white;
+    padding: 3px 20px;
+    border-radius: 50px;
+}
+.vertical__line {
+    border-left: 2px solid #cd9042;;
+    height:25px;
+    margin: 0px 3px;
+}
+.filter__container > h3 {
+    color: #cd9042;
+}
+.filter__container > input {
+    margin: 0px 3px;
+    color: #cd9042;
+}
+.filter__container  > select {
+    margin: 0px 3px;
+    color: #cd9042;
+    border-radius: 50px;
+    padding: 10px 10px;
+}
+.filter__container > label {
+    padding: 0px 10px;
+}

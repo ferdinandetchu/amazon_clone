@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./Product.css";
+import "./CheckProduct.css";
 import { BasketContext } from "../../data.js";
 
 function Product({ product }) {
@@ -8,12 +8,20 @@ function Product({ product }) {
   function removeFromBasket(id) {
     // dispach the item into the data layer
     dispatch({ type: "REMOVEFROMBASKET", id: id });
+    const jsonBasket = JSON.stringify(basket);
+    // console.log(jsonBasket);
+    localStorage.removeItem("basket");
     // console.log(id);
   }
   if (product.id) {
     return (
       <div className="product">
-        <img src={product.image} alt="" />
+        <div
+          className="product__image"
+          style={{ backgroundImage: `url(${product.image})` }}
+        >
+          {/* <img src={product.image} alt="" /> */}
+        </div>
         <div className="product__info">
           <h4>{product.title}</h4>
           <p>{product.description}</p>

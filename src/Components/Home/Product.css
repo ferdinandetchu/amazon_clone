@@ -14,14 +14,19 @@
     /* max-width: 25%; */
     /* font-size: 30px; */
 }
-
-.product__rating {
-    display: flex ;
+.home__product:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
 }
-.home__product > img {
-    max-height: 200px;
+.home__product__rating {
+    display: flex ;
+    width: 200px;
+}
+.home__product__image {
+    height: 200px;
     width: 100%;
-    object-fit: contain;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
     margin-bottom: 15px;
 }
 
@@ -33,11 +38,11 @@
     color: #111;
 }
 
-.product__price {
+.home__product__price {
     margin-top: 5px;
 }
 
-.product__info {
+.home__product__info {
     height: 200px;
     margin-bottom: 15px; 
 }
